@@ -5,13 +5,13 @@
 }
 
 body {
-    height: 100;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-family: sans-serif;
-    background-color: pink;
+    background-color: orange;
 }
 
 .libro {
@@ -53,8 +53,8 @@ body {
     z-index: 0;
 }
 
-.imparhojas,
-.parhojas {
+.imparhoja,
+.parhoja {
     width: 100%;
     height: 100%;
     display: flex;
@@ -62,7 +62,7 @@ body {
     align-items: center;
 }
 
-.parhojas {
+.parhoja {
     transform: rotateY(180deg)
 }
 
@@ -74,14 +74,13 @@ body {
 
 button {
     border: none;
-    background-color: transparent;
+    background-color: whitesmoke;
     cursor: pointer;
-    margin: 10px;
-    transition: transform 0.5s;
+    margin: 15px;
 }
 
 button:focus {
-    outline: none;
+    outline: auto;
 }
 
 button:hover i {
@@ -93,7 +92,10 @@ i {
     color: grey;
 }
 
-/* Paper stack order */
+h1 {
+    text-align: center;
+}
+
 #pag1 {
     z-index: 3;
 }

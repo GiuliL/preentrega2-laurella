@@ -8,41 +8,43 @@
     <script src="./javascript.js" defer></script>
 </head>
 <body>
-    
+    <div class="irPaginaAnte" aria-label="Basic button">
+        <button type="button" id="buttonante" class="buttonante">Página anterior</button>
+    </div>
+
     <div id="libro" class="libro">
         <div id="pag1" class="pagina">
             <div class="hojasimpar">
                 <div id="impar1" class="imparhoja">
                     <h1>Primera</h1>
                 </div>
-            </div> 
         </div>
         
         <div class="hojaspar">
             <div id="par1" class="parhoja">
                     <h1>Segunda</h1>
                 </div>
+            </div>
         </div>
         <div id="pag2" class="pagina">
             <div class="hojasimpar">
                 <div id="impar2" class="imparhoja">
                     <h1>Tercera</h1>
-                </div>
-            </div> 
+                </div> 
         </div>
             <div class="hojaspar">
                 <div id="par2" class="parhoja">
                     <h1>Cuarta</h1>
                 </div>
-            </div> 
+            </div>
+        </div> 
 
             <div id="pag3" class="pagina">
                 <div class="hojasimpar">
                     <div id="impar3" class="imparhoja">
                         <h1>Quinta</h1>
                     </div>
-                </div> 
-            </div>
+                </div>
                 <div class="hojaspar">
                     <div id="par3" class="parhoja">
                         <h1>Sexta</h1>
@@ -50,12 +52,9 @@
                 </div> 
             </div>
         </div>
-    </div>
     
-    <div class="button" role="group" aria-label="Basic button group">
-        <button type="button" class="button">Pagina anterior</button>
-
-        <button type="button" class="button">Pagina siguiente</button>
+    <div class="irSiguientePag" aria-label="Basic button">
+        <button type="button" id="buttonsig" class="buttonsig">Página siguiente</button>
     </div>
 </body>
 </html>
