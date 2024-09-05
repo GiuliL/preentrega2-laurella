@@ -1,4 +1,4 @@
-const anteBtn = document.querySelector("#buttonante");
+const anteBtn = document.querySelector("#buttonante"); 
 const sigBtn = document.querySelector("#buttonsig"); 
 const libro = document.querySelector("#libro");
 
@@ -12,6 +12,36 @@ sigBtn.addEventListener("click", irSiguientePag);
 let libroTotal = 1;
 let numDePagi = 3;
 let totalPaginas = numDePagi + 1;
+
+
+const paginas = [
+    document.querySelector("#pag1"),
+    document.querySelector("#pag2"),
+    document.querySelector("#pag3")
+];
+
+
+const libroEstado = {
+    libroTotal: 1,
+    totalPaginas: function() {
+        return this.numDePagi + 1;
+    },
+    abrirLibro: function() {
+        libro.style.transform = "translateX(50%)";
+        anteBtn.style.transform = "translateX(-180px)";
+        sigBtn.style.transform = "translateX(180px)";
+    },
+    cerrarLibro: function(isAtBeginning) {
+        if (isAtBeginning) {
+            libro.style.transform = "translateX(0%)";
+        } else {
+            libro.style.transform = "translateX(100%)";
+        }
+        anteBtn.style.transform = "translateX(0px)";
+        sigBtn.style.transform = "translateX(0px)";
+    }
+};
+
 
 function abrirLibro() {
     libro.style.transform = "translateX(50%)";
