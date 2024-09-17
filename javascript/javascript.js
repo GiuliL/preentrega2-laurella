@@ -13,7 +13,6 @@ let libroTotal = 1;
 let numDePagi = 3;
 let totalPaginas = numDePagi + 1;
 
-
 const paginas = [
     document.querySelector("#pag1"),
     document.querySelector("#pag2"),
@@ -42,6 +41,9 @@ const libroEstado = {
     }
 };
 
+function redirigir(url) {
+    window.location.href = url;
+}
 
 function abrirLibro() {
     libro.style.transform = "translateX(50%)";
