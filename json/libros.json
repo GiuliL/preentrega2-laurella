@@ -1,0 +1,18 @@
+[
+    {
+        "titulo": "Cuando se van al jardín",
+        "imagen": "assets/imagenes/cuandosevanaljardin.png",
+        "texto": "Silvia Schujer",
+        "ilustraciones": "Patricia López Latour",
+        "editorial": "UNICEF",
+        "url": "libro1.html"
+    },
+    {
+        "titulo": "El guarda secretos",
+        "imagen": "assets/imagenes/elguarda.png",
+        "texto": "Graciela Repún",
+        "ilustraciones": "Elissambura",
+        "editorial": "UNICEF",
+        "url": "libro2.html"
+    }
+]

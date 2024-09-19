@@ -41,9 +41,6 @@ const libroEstado = {
     }
 };
 
-function redirigir(url) {
-    window.location.href = url;
-}
 
 function abrirLibro() {
     libro.style.transform = "translateX(50%)";
@@ -110,4 +107,9 @@ function irPaginaAnte() {
         }
         libroTotal--;
     }
+}
+
+function seleccionarLibro(tituloLibro, url) {
+    localStorage.setItem('libroSeleccionado', tituloLibro);
+    window.location.href = url;
 }
