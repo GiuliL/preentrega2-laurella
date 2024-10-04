@@ -1,18 +1,40 @@
-[
-    {
-        "titulo": "Cuando se van al jardín",
-        "imagen": "assets/imagenes/cuandosevanaljardin.png",
-        "texto": "Silvia Schujer",
-        "ilustraciones": "Patricia López Latour",
-        "editorial": "UNICEF",
-        "url": "libro1.html"
-    },
-    {
-        "titulo": "El guarda secretos",
-        "imagen": "assets/imagenes/elguarda.png",
-        "texto": "Graciela Repún",
-        "ilustraciones": "Elissambura",
-        "editorial": "UNICEF",
-        "url": "libro2.html"
-    }
-]
+{
+    "paginas": [
+        "assets/libro1/cuandosevanaljardinpag (1).jpg",
+        "assets/libro1/cuandosevanaljardinpag (2).jpg",
+        "assets/libro1/cuandosevanaljardinpag (3).jpg",
+        "assets/libro1/cuandosevanaljardinpag (4).jpg",
+        "assets/libro1/cuandosevanaljardinpag (5).jpg",
+        "assets/libro1/cuandosevanaljardinpag (6).jpg",
+        "assets/libro1/cuandosevanaljardinpag (7).jpg",
+        "assets/libro1/cuandosevanaljardinpag (8).jpg",
+        "assets/libro1/cuandosevanaljardinpag (9).jpg",
+        "assets/libro1/cuandosevanaljardinpag (10).jpg",
+        "assets/libro1/cuandosevanaljardinpag (11).jpg",
+        "assets/libro1/cuandosevanaljardinpag (12).jpg",
+        "assets/libro1/cuandosevanaljardinpag (13).jpg",
+        "assets/libro1/cuandosevanaljardinpag (14).jpg",
+        "assets/libro1/cuandosevanaljardinpag (15).jpg",
+        "assets/libro1/cuandosevanaljardinpag (16).jpg",
+        "assets/libro1/cuandosevanaljardinpag (17).jpg",
+        "assets/libro1/cuandosevanaljardinpag (18).jpg",
+        "assets/libro1/cuandosevanaljardinpag (19).jpg",
+        "assets/libro1/cuandosevanaljardinpag (20).jpg",
+        "assets/libro1/cuandosevanaljardinpag (21).jpg",
+        "assets/libro1/cuandosevanaljardinpag (22).jpg",
+        "assets/libro1/cuandosevanaljardinpag (23).jpg",
+        "assets/libro1/cuandosevanaljardinpag (24).jpg",
+        "assets/libro1/cuandosevanaljardinpag (25).jpg",
+        "assets/libro1/cuandosevanaljardinpag (26).jpg",
+        "assets/libro1/cuandosevanaljardinpag (27).jpg",
+        "assets/libro1/cuandosevanaljardinpag (28).jpg",
+        "assets/libro1/cuandosevanaljardinpag (29).jpg",
+        "assets/libro1/cuandosevanaljardinpag (30).jpg",
+        "assets/libro1/cuandosevanaljardinpag (31).jpg",
+        "assets/libro1/cuandosevanaljardinpag (32).jpg",
+        "assets/libro1/cuandosevanaljardinpag (33).jpg"
+
+    ]
+}
+
+

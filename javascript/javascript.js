@@ -1,115 +1,76 @@
-const anteBtn = document.querySelector("#buttonante"); 
-const sigBtn = document.querySelector("#buttonsig"); 
-const libro = document.querySelector("#libro");
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        const response = await fetch('json/libros.json');
+        const data = await response.json();
+        const paginas = data.paginas; 
+        const contenidoLibro = document.getElementById('contenidoLibro');
 
-const pagina1 = document.querySelector("#pag1");
-const pagina2 = document.querySelector("#pag2");
-const pagina3 = document.querySelector("#pag3");
+        paginas.forEach(function(url) {
+            const paginaDiv = document.createElement('div');
+            paginaDiv.classList.add('flipbook');
+            
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = "Página del libro";
+            img.classList.add('img-fluid');
 
-anteBtn.addEventListener("click", irPaginaAnte);
-sigBtn.addEventListener("click", irSiguientePag);
+            paginaDiv.appendChild(img);
+            contenidoLibro.appendChild(paginaDiv);
+        });
 
-let libroTotal = 1;
-let numDePagi = 3;
-let totalPaginas = numDePagi + 1;
-
-const paginas = [
-    document.querySelector("#pag1"),
-    document.querySelector("#pag2"),
-    document.querySelector("#pag3")
-];
-
-
-const libroEstado = {
-    libroTotal: 1,
-    totalPaginas: function() {
-        return this.numDePagi + 1;
-    },
-    abrirLibro: function() {
-        libro.style.transform = "translateX(50%)";
-        anteBtn.style.transform = "translateX(-180px)";
-        sigBtn.style.transform = "translateX(180px)";
-    },
-    cerrarLibro: function(isAtBeginning) {
-        if (isAtBeginning) {
-            libro.style.transform = "translateX(0%)";
-        } else {
-            libro.style.transform = "translateX(100%)";
+        if (!Array.isArray(paginas) || paginas.length === 0) {
+            console.error('No se encontraron páginas en el JSON.');
+            return;
         }
-        anteBtn.style.transform = "translateX(0px)";
-        sigBtn.style.transform = "translateX(0px)";
+
+        $('#contenidoLibro').turn({
+            display: 'double', 
+            acceleration: true,
+            gradients: !$.isTouch,
+            elevation: 50,
+            when: {
+                turned: function(e, page) {
+                    console.log('Página actual: ', page);
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error al cargar el libro:', error);
     }
-};
+});
 
+$('#contenidoLibro').on('click', function (e) {
+    const containerWidth = $(this).width();
+    const clickPosition = e.pageX - $(this).offset().left;
 
-function abrirLibro() {
-    libro.style.transform = "translateX(50%)";
-    anteBtn.style.transform = "translateX(-180px)";
-    sigBtn.style.transform = "translateX(180px)";
-}
+    (clickPosition < containerWidth / 2) 
+        ? $(this).turn('previous') 
+        : $(this).turn('next');
+});
 
-function cerrarLibro(isAtBeginning) {
-    if (isAtBeginning) {
-        libro.style.transform = "translateX(0%)";
-    } else {
-        libro.style.transform = "translateX(100%)";
+$(window).bind('keydown', function(e){
+    if (e.keyCode == 37) { 
+        $('#contenidoLibro').turn('previous');
+    } else if (e.keyCode == 39) {
+        $('#contenidoLibro').turn('next');
     }
-    
-    anteBtn.style.transform = "translateX(0px)";
-    sigBtn.style.transform = "translateX(0px)";
-}
-
-function irSiguientePag() {
-    console.log("Botón siguiente presionado");
-    if (libroTotal < totalPaginas) {
-        switch (libroTotal) {
-            case 1:
-                abrirLibro();
-                pagina1.classList.add("flipped");
-                pagina1.style.zIndex = 1;
-                break;
-            case 2:
-                pagina2.classList.add("flipped");
-                pagina2.style.zIndex = 2;
-                break;
-            case 3:
-                pagina3.classList.add("flipped");
-                pagina3.style.zIndex = 3;
-                cerrarLibro(false);
-                break;
-            default:
-                throw new Error("unknown state");
-        }
-        libroTotal++;
-    }
-}
-
-function irPaginaAnte() {
-    console.log("Botón anterior presionado"); 
-    if (libroTotal > 1) {
-        switch (libroTotal) {
-            case 2:
-                cerrarLibro(true);
-                pagina1.classList.remove("flipped");
-                pagina1.style.zIndex = 3;
-                break;
-            case 3:
-                pagina2.classList.remove("flipped");
-                pagina2.style.zIndex = 2;
-                break;
-            case 4:
-                abrirLibro();
-                pagina3.classList.remove("flipped");
-                pagina3.style.zIndex = 1;
-                break;
-            default:
-                throw new Error("unknown state");
-        }
-        libroTotal--;
-    }
-}
+});
 
 function seleccionarLibro(tituloLibro, url) {
     localStorage.setItem('libroSeleccionado', tituloLibro);
     window.location.href = url;
+}
+
+function obtenerLibroSeleccionado() {
+    const libro = localStorage.getItem('libroSeleccionado');
+    if (libro) {
+        console.log(`Libro seleccionado: ${libro}`);
+    } else {
+        console.log('No hay libro seleccionado en localStorage.');
+    }
+}
+
+function eliminarLibroSeleccionado() {
+    localStorage.removeItem('libroSeleccionado');
+    console.log('Libro seleccionado eliminado de localStorage.');
 }
